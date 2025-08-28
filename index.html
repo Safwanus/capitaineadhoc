@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://unpkg.com" />
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.prod.js"></script>
+  <!-- Tailwind via CDN (JIT) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -44,7 +45,7 @@
         <header class="sticky top-0 z-50 bg-ocean/90 text-white glass border-b border-white/10">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-              <a href="/" class="flex items-center gap-3 group">
+              <a href="#/" class="flex items-center gap-3 group">
                 <div class="w-9 h-9 rounded-none bg-lagoon/90 grid place-items-center shadow-soft">
                   <span class="font-black">A</span>
                 </div>
@@ -120,15 +121,263 @@
     }
 
     // -------------------- Pages --------------------
-    const Accueil = { template: `<section class='p-8'><h1 class='text-3xl font-bold'>Accueil</h1></section>` }
-    const Mobilisations = { template: `<section class='p-8'><h1 class='text-3xl font-bold'>Mobilisations</h1></section>` }
-    const Association = { template: `<section class='p-8'><h1 class='text-3xl font-bold'>Association</h1></section>` }
-    const Engagements = { template: `<section class='p-8'><h1 class='text-3xl font-bold'>Engagements</h1></section>` }
-    const Partenaires = { template: `<section class='p-8'><h1 class='text-3xl font-bold'>Partenaires</h1></section>` }
-    const AdhesionDons = { template: `<section class='p-8'><h1 class='text-3xl font-bold'>Adhésion & Dons</h1></section>` }
-    const Agenda = { template: `<section class='p-8'><h1 class='text-3xl font-bold'>Agenda</h1></section>` }
-    const Contact = { template: `<section class='p-8'><h1 class='text-3xl font-bold'>Contact</h1></section>` }
+    const Accueil = {
+      template: `
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-ocean via-ocean to-[#052033]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-white">
+          <div class="max-w-3xl">
+            <h1 class="text-4xl md:text-6xl font-black leading-tight">Cap vers l’avenir — <span class="text-lagoon">Mers & Océans</span></h1>
+            <p class="mt-6 text-lg text-white/90">Association Capitaine Ad’Hoc : mobiliser, fédérer et innover pour transformer les défis en réussites collectives au service du bien-être animal, de l’emploi, de l’innovation et de l’éducation.</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <RouterLink to="/adhesion-dons" class="bg-lagoon text-ocean font-semibold px-5 py-3 rounded-xl shadow-soft hover:opacity-90">Rejoindre la flotte</RouterLink>
+              <RouterLink to="/mobilisations" class="border border-white/30 px-5 py-3 rounded-xl hover:bg-white/10">Voir les mobilisations</RouterLink>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 class="text-2xl md:text-3xl font-extrabold">À la une</h2>
+        <div class="mt-8 grid md:grid-cols-3 gap-6">
+          <article class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h3 class="font-bold">Fermeture de Marineland</h3>
+            <p class="text-sm text-slate-500">Antibes — 5 janvier 2025</p>
+            <p class="mt-3 text-slate-700">Témoins de la fermeture, nous cherchons des solutions pour transformer cet échec en réussite collective, gagnante pour tous.</p>
+            <RouterLink to="/mobilisations" class="mt-4 inline-block text-ocean hover:text-lagoon">En savoir plus →</RouterLink>
+          </article>
+          <article class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h3 class="font-bold">#freepaulwatson</h3>
+            <p class="text-sm text-slate-500">Antibes — Juil. → Déc. 2024</p>
+            <p class="mt-3 text-slate-700">Soutien au fondateur de Greenpeace & Sea Shepherd : rencontres, mobilisation, réseaux sociaux — sans militantisme, pour libérer un innocent.</p>
+            <RouterLink to="/mobilisations" class="mt-4 inline-block text-ocean hover:text-lagoon">Découvrir la campagne →</RouterLink>
+          </article>
+          <article class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h3 class="font-bold">#Marineland2050</h3>
+            <p class="text-sm text-slate-500">Antibes — Janv. → Juin 2025</p>
+            <p class="mt-3 text-slate-700">Projet de reconversion fédérant acteurs publics & privés : bien-être animal, emploi, innovation, spectacle, tourisme, éducation…</p>
+            <RouterLink to="/mobilisations" class="mt-4 inline-block text-ocean hover:text-lagoon">Voir le projet →</RouterLink>
+          </article>
+        </div>
+      </section>
+      `
+    }
+
+    const Mobilisations = {
+      template: `
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="text-3xl md:text-4xl font-extrabold">Mobilisations & Projets</h1>
+        <div class="mt-8 space-y-6">
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h2 class="text-xl font-bold">#freepaulwatson</h2>
+            <p class="text-sm text-slate-500">Antibes — Juillet / Décembre 2024</p>
+            <p class="mt-2 text-slate-700">Rencontres avec associations (One Voice), élus locaux et mobilisation sur les réseaux. Sans militantisme : un engagement pour libérer un innocent.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h2 class="text-xl font-bold">Fermeture Marineland — Situation de crise</h2>
+            <p class="text-sm text-slate-500">Antibes — 5 janvier 2025</p>
+            <p class="mt-2 text-slate-700">Le capitaine Ad’Hoc, parmi les derniers visiteurs, s’engage à trouver des solutions pour une reconversion positive.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h2 class="text-xl font-bold">#Marineland2050</h2>
+            <p class="text-sm text-slate-500">Antibes — Janvier / Juin 2025</p>
+            <p class="mt-2 text-slate-700">Une vingtaine d’engagements, un projet de reconversion fédérateur, mobilisant une équipe et des partenaires.</p>
+            <ul class="list-disc ml-6 mt-2 text-slate-700">
+              <li>Bien-être animal, Emploi, Innovation</li>
+              <li>Spectacle, Loisirs, Tourisme, Éducation</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h2 class="text-xl font-bold">Annonce Journal Officiel — Naissance de l’association</h2>
+            <p class="text-sm text-slate-500">Antibes — 15 juillet 2025</p>
+            <p class="mt-2 text-slate-700">Après signature des statuts et constitution du bureau, l’association Capitaine Ad’Hoc “Mers & Océans” est née.</p>
+          </div>
+        </div>
+      </section>`
+    }
+
+    const Association = {
+      template: `
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="text-3xl md:text-4xl font-extrabold">Association</h1>
+        <p class="mt-4 text-slate-700 max-w-3xl">Notre cap : transformer des situations complexes en réussites collectives. Nous fédérons des acteurs publics et privés autour d’un projet d’avenir pour les mers & océans, avec Antibes comme port d’attache.</p>
+        <div class="mt-8 grid md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h3 class="font-semibold">Cap vers l’avenir</h3>
+            <p class="text-slate-700 mt-2">Vision, gouvernance ouverte, transparence et impact local.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h3 class="font-semibold">Rejoindre la flotte</h3>
+            <p class="text-slate-700 mt-2">Un équipage, des partenaires, des soutiens : embarquez !</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h3 class="font-semibold">Pourquoi nous soutenir ?</h3>
+            <p class="text-slate-700 mt-2">Bien commun, innovation, éducation et rayonnement territorial.</p>
+          </div>
+        </div>
+      </section>`
+    }
+
+    const Engagements = {
+      setup(){
+        const items = [
+          { n:1, t:"Biodiversité & Vie Marine"},
+          { n:2, t:"Emplois & Ressources"},
+          { n:3, t:"Visiteurs & Sociétaires"},
+          { n:4, t:"Scène & Spectacles"},
+          { n:5, t:"Éducation & Kid’s Club"},
+          { n:6, t:"Recherche & Formations"},
+          { n:7, t:"Citoyens Sauveteurs"},
+          { n:8, t:"Cuisine & Saveurs"},
+          { n:9, t:"Bien-être & Santé"},
+          { n:10, t:"Robotique & IA"},
+          { n:11, t:"Réalité Virtuelle (VR)"},
+          { n:12, t:"Voile & Navigation"},
+        ];
+        return { items };
+      },
+      template: `
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="text-3xl md:text-4xl font-extrabold">Les 12 engagements</h1>
+        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div v-for="e in items" :key="e.n" class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <div class="text-xs uppercase tracking-widest text-slate-500">Engagement #{{ e.n }}</div>
+            <div class="font-semibold mt-1">{{ e.t }}</div>
+            <p class="text-slate-700 mt-3 text-sm">Programme détaillé à venir avec indicateurs d’impact, partenaires associés et calendrier opérationnel.</p>
+          </div>
+        </div>
+      </section>`
+    }
+
+    const Partenaires = {
+      template: `
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+        <h1 class="text-3xl md:text-4xl font-extrabold">Partenaires & Soutiens</h1>
+        <div class="grid lg:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h2 class="font-bold">Banques & Financement</h2>
+            <ul class="list-disc ml-5 mt-2 text-slate-700">
+              <li>Crédit Coopératif — gestion du compte associatif</li>
+              <li>Banque des Territoires — financement public (projet)</li>
+              <li>Caisse des Dépôts — garanties liées au financement public</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h2 class="font-bold">Interlocuteurs incontournables</h2>
+            <p class="text-slate-700 mt-2">Groupe Parques Reunidos (Aquasplash, Adventure Golf, So Blue — Antibes). Droits et responsabilités respectés ; construire l’avenir ensemble est souhaitable.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h2 class="font-bold">Partenaires associés — PME & Start‑up</h2>
+            <p class="text-slate-700 mt-2">PME leaders et start‑up impliquées pour contribuer aux objectifs ; engagement en cours de fédération.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h2 class="font-bold">Collectivités & Labels</h2>
+            <p class="text-slate-700 mt-2">Ville d’Antibes, Département 06, Côte d’Azur France Tourisme, Région Sud — soutiens essentiels pour un impact économique, social et environnemental.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200 lg:col-span-2">
+            <h2 class="font-bold">Partenaires institutionnels & mécénat</h2>
+            <p class="text-slate-700 mt-2">Grandes entreprises (Sophia Antipolis) — mécénat de compétences, soutien technologique & financier (ex : Air France, Amadeus, Thales).</p>
+          </div>
+        </div>
+      </section>`
+    }
+
+    const AdhesionDons = {
+      template: `
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+        <h1 class="text-3xl md:text-4xl font-extrabold">Adhésion & Dons</h1>
+        <div class="grid lg:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h2 class="font-bold">HelloAsso — Adhésions & Dons</h2>
+            <p class="text-slate-700 mt-2">Plateforme française de référence pour la gestion associative. Sécurisée et adaptée à nos besoins (adhésions, dons, communication).</p>
+            <a href="#" class="inline-block mt-4 bg-ocean text-white px-4 py-2 rounded-xl hover:bg-lagoon hover:text-ocean transition">Accéder à HelloAsso</a>
+          </div>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h2 class="font-bold">Ulule — Campagne 2025</h2>
+            <p class="text-slate-700 mt-2">Lancement prévu en novembre–décembre 2025. Objectif : réunir des fonds (de 5 000 à 4 000 000 € possibles sur la plateforme) pour accélérer nos actions.</p>
+            <a href="#" class="inline-block mt-4 border border-ocean text-ocean px-4 py-2 rounded-xl hover:bg-ocean hover:text-white transition">Découvrir Ulule</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+          <h2 class="font-bold">Dress code — Équipage & membres</h2>
+          <p class="text-slate-700 mt-2">Portez nos couleurs : développer la notoriété, se reconnaître et participer à l’élan collectif.</p>
+        </div>
+      </section>`
+    }
+
+    const Agenda = {
+      template: `
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="text-3xl md:text-4xl font-extrabold">Agenda & Jalons</h1>
+        <ol class="mt-8 relative border-l-2 border-ocean/20 pl-6 space-y-8">
+          <li>
+            <div class="absolute -left-2 top-1 w-4 h-4 rounded-none bg-lagoon"></div>
+            <h3 class="font-semibold">Juil.–Déc. 2024 — #freepaulwatson</h3>
+            <p class="text-slate-700">Mobilisation & rencontres.</p>
+          </li>
+          <li>
+            <div class="absolute -left-2 top-1 w-4 h-4 rounded-none bg-lagoon"></div>
+            <h3 class="font-semibold">5 jan. 2025 — Fermeture de Marineland</h3>
+            <p class="text-slate-700">Recherche de solutions de reconversion.</p>
+          </li>
+          <li>
+            <div class="absolute -left-2 top-1 w-4 h-4 rounded-none bg-lagoon"></div>
+            <h3 class="font-semibold">Janv.–Juin 2025 — #Marineland2050</h3>
+            <p class="text-slate-700">Projet de reconversion et 20 engagements.</p>
+          </li>
+          <li>
+            <div class="absolute -left-2 top-1 w-4 h-4 rounded-none bg-lagoon"></div>
+            <h3 class="font-semibold">15 juil. 2025 — Naissance de l’association</h3>
+            <p class="text-slate-700">Publication au Journal Officiel.</p>
+          </li>
+        </ol>
+      </section>`
+    }
+
+    const Contact = {
+      setup(){
+        const sent = Vue.ref(false);
+        const submit = (e)=>{ e.preventDefault(); sent.value = true; };
+        return { sent, submit };
+      },
+      template: `
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="text-3xl md:text-4xl font-extrabold">Contact</h1>
+        <div class="mt-8 grid lg:grid-cols-2 gap-6">
+          <form @submit="submit" class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium">Nom</label>
+                <input required class="mt-1 w-full rounded-xl border-slate-300 focus:border-lagoon focus:ring-lagoon" type="text" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium">Email</label>
+                <input required class="mt-1 w-full rounded-xl border-slate-300 focus:border-lagoon focus:ring-lagoon" type="email" />
+              </div>
+            </div>
+            <div class="mt-4">
+              <label class="block text-sm font-medium">Message</label>
+              <textarea required rows="5" class="mt-1 w-full rounded-xl border-slate-300 focus:border-lagoon focus:ring-lagoon"></textarea>
+            </div>
+            <button class="mt-4 bg-ocean text-white px-4 py-2 rounded-xl hover:bg-lagoon hover:text-ocean transition">Envoyer</button>
+            <p v-if="sent" class="mt-3 text-green-700">Merci ! Votre message a été pris en compte (démo, pas d’envoi réel).</p>
+          </form>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+            <h2 class="font-bold">QR Code & Réseaux</h2>
+            <div class="mt-4 grid grid-cols-2 gap-4 items-center">
+              <div class="aspect-square rounded-2xl border-2 border-dashed border-slate-300 grid place-items-center text-slate-400">QR<br/>code</div>
+              <ul class="space-y-2 text-slate-700">
+                <li>#capitaineadhoc</li>
+                <li>#freepaulwatson</li>
+                <li>#marineland2050</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>`
+    }
+
+    // -------------------- Router --------------------
     const routes = [
       { path: '/', component: Accueil },
       { path: '/mobilisations', component: Mobilisations },
@@ -142,6 +391,7 @@
 
     const router = createRouter({ history: createWebHistory(), routes });
 
+    // -------------------- Mount --------------------
     const app = createApp(AppLayout);
     app.use(router);
     app.mount('#app');
