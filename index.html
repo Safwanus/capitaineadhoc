@@ -349,19 +349,35 @@
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-sm font-medium">Nom</label>
-                <input required class="mt-1 w-full rounded-xl border-slate-300 focus:border-grey focus:ring-grey" type="text" />
+                <input 
+                  required 
+                  class="mt-1 w-full rounded-xl border border-slate-300 focus:border-grey focus:ring-grey" 
+                  type="text" 
+                />
               </div>
               <div>
                 <label class="block text-sm font-medium">Email</label>
-                <input required class="mt-1 w-full rounded-xl border-slate-300 focus:border-grey focus:ring-grey" type="email" />
+                <input 
+                  required 
+                  class="mt-1 w-full rounded-xl border border-slate-300 focus:border-grey focus:ring-grey" 
+                  type="email" 
+                />
               </div>
             </div>
             <div class="mt-4">
               <label class="block text-sm font-medium">Message</label>
-              <textarea required rows="5" class="mt-1 w-full rounded-xl border-slate-300 focus:border-grey focus:ring-grey"></textarea>
+              <textarea 
+                required 
+                rows="5" 
+                class="mt-1 w-full rounded-xl border border-slate-300 focus:border-grey focus:ring-grey"
+              ></textarea>
             </div>
-            <button class="mt-4 bg-lightblack text-white px-4 py-2 rounded-xl hover:bg-grey hover:text-lightblack transition">Envoyer</button>
-            <p v-if="sent" class="mt-3 text-green-700">Merci ! Votre message a été pris en compte (démo, pas d’envoi réel).</p>
+            <button class="mt-4 bg-lightblack text-white px-4 py-2 rounded-xl hover:bg-grey hover:text-lightblack transition">
+              Envoyer
+            </button>
+            <p v-if="sent" class="mt-3 text-green-700">
+              Merci ! Votre message a été pris en compte (démo, pas d’envoi réel).
+            </p>
           </form>
           <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
             <h2 class="font-bold">QR Code & Réseaux</h2>
