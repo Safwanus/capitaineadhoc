@@ -346,22 +346,31 @@ const Contact = {
     <h1 class="text-3xl md:text-4xl font-extrabold">Contact</h1>
     <div class="mt-8 grid lg:grid-cols-2 gap-6">
       <!-- Form -->
-      <form @submit="submit" class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200" netlify>
+      <form class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200" netlify>
+        
+        <!-- Hidden input for Netlify form detection -->
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
+
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-medium">Nom</label>
             <input 
               required 
-              class="mt-1 w-full rounded-xl border border-slate-300 focus:border-grey focus:ring-grey" 
+              class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:border-grey focus:ring-grey" 
               type="text" 
+              name="nom"
             />
           </div>
           <div>
             <label class="block text-sm font-medium">Email</label>
             <input 
               required 
-              class="mt-1 w-full rounded-xl border border-slate-300 focus:border-grey focus:ring-grey" 
+              class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:border-grey focus:ring-grey" 
               type="email" 
+              name="email"
             />
           </div>
         </div>
@@ -370,14 +379,15 @@ const Contact = {
           <textarea 
             required 
             rows="5" 
-            class="mt-1 w-full rounded-xl border border-slate-300 focus:border-grey focus:ring-grey"
+            class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 focus:border-grey focus:ring-grey"
+            name="message"
           ></textarea>
         </div>
-        <button class="mt-4 bg-lightblack text-white px-4 py-2 rounded-xl hover:bg-grey hover:text-lightblack transition">
+        <button type="submit" class="mt-4 bg-lightblack text-white px-4 py-2 rounded-xl hover:bg-grey hover:text-lightblack transition">
           Envoyer
         </button>
         <p v-if="sent" class="mt-3 text-green-700">
-          Merci ! Votre message a été pris en compte (démo, pas d’envoi réel).
+          Merci ! Votre message a été pris en compte.
         </p>
       </form>
 
