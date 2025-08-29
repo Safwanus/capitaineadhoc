@@ -335,64 +335,88 @@
       </section>`
     }
 
-    const Contact = {
-      setup(){
-        const sent = Vue.ref(false);
-        const submit = (e)=>{ e.preventDefault(); sent.value = true; };
-        return { sent, submit };
-      },
-      template: `
-      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 class="text-3xl md:text-4xl font-extrabold">Contact</h1>
-        <div class="mt-8 grid lg:grid-cols-2 gap-6">
-          <form @submit="submit" class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200" netlify>
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium">Nom</label>
-                <input 
-                  required 
-                  class="mt-1 w-full rounded-xl border border-slate-300 focus:border-grey focus:ring-grey" 
-                  type="text" 
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium">Email</label>
-                <input 
-                  required 
-                  class="mt-1 w-full rounded-xl border border-slate-300 focus:border-grey focus:ring-grey" 
-                  type="email" 
-                />
-              </div>
-            </div>
-            <div class="mt-4">
-              <label class="block text-sm font-medium">Message</label>
-              <textarea 
-                required 
-                rows="5" 
-                class="mt-1 w-full rounded-xl border border-slate-300 focus:border-grey focus:ring-grey"
-              ></textarea>
-            </div>
-            <button class="mt-4 bg-lightblack text-white px-4 py-2 rounded-xl hover:bg-grey hover:text-lightblack transition">
-              Envoyer
-            </button>
-            <p v-if="sent" class="mt-3 text-green-700">
-              Merci ! Votre message a été pris en compte (démo, pas d’envoi réel).
-            </p>
-          </form>
-          <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
-            <h2 class="font-bold">QR Code & Réseaux</h2>
-            <div class="mt-4 grid grid-cols-2 gap-4 items-center">
-              <div class="aspect-square rounded-2xl border-2 border-dashed border-slate-300 grid place-items-center text-slate-400"><img src="/assets/qrcode.png" alt="Marineland2050 QRCODE" class="w-full h-full object-contain" /></div>
-              <ul class="space-y-2 text-slate-700">
-                <li>#capitaineadhoc</li>
-                <li>#freepaulwatson</li>
-                <li>#marineland2050</li>
-              </ul>
-            </div>
+const Contact = {
+  setup(){
+    const sent = Vue.ref(false);
+    const submit = (e)=>{ e.preventDefault(); sent.value = true; };
+    return { sent, submit };
+  },
+  template: `
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-3xl md:text-4xl font-extrabold">Contact</h1>
+    <div class="mt-8 grid lg:grid-cols-2 gap-6">
+      <!-- Form -->
+      <form @submit="submit" class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200" netlify>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium">Nom</label>
+            <input 
+              required 
+              class="mt-1 w-full rounded-xl border border-slate-300 focus:border-grey focus:ring-grey" 
+              type="text" 
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium">Email</label>
+            <input 
+              required 
+              class="mt-1 w-full rounded-xl border border-slate-300 focus:border-grey focus:ring-grey" 
+              type="email" 
+            />
           </div>
         </div>
-      </section>`
-    }
+        <div class="mt-4">
+          <label class="block text-sm font-medium">Message</label>
+          <textarea 
+            required 
+            rows="5" 
+            class="mt-1 w-full rounded-xl border border-slate-300 focus:border-grey focus:ring-grey"
+          ></textarea>
+        </div>
+        <button class="mt-4 bg-lightblack text-white px-4 py-2 rounded-xl hover:bg-grey hover:text-lightblack transition">
+          Envoyer
+        </button>
+        <p v-if="sent" class="mt-3 text-green-700">
+          Merci ! Votre message a été pris en compte (démo, pas d’envoi réel).
+        </p>
+      </form>
+
+      <!-- QR Code -->
+      <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+        <h2 class="font-bold">QR Code & Réseaux</h2>
+        <div class="mt-4 grid grid-cols-2 gap-4 items-center">
+          <div class="aspect-square rounded-2xl border-2 border-dashed border-slate-300 grid place-items-center text-slate-400">
+            <img src="/assets/qrcode.png" alt="Marineland2050 QRCODE" class="w-full h-full object-contain" />
+          </div>
+          <ul class="space-y-2 text-slate-700">
+            <li>#capitaineadhoc</li>
+            <li>#freepaulwatson</li>
+            <li>#marineland2050</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Links Section -->
+    <div class="mt-12 bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
+      <h2 class="font-bold mb-4">Suivez-nous</h2>
+      <div class="flex gap-6 text-2xl text-slate-600">
+        <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn" class="hover:text-blue-600 transition">
+          <!-- LinkedIn icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4zM8.5 8.5h3.83v2.11h.05c.53-1 1.82-2.11 3.74-2.11 4 0 4.73 2.63 4.73 6.05V24h-4v-7.5c0-1.78-.03-4.07-2.5-4.07-2.5 0-2.88 1.91-2.88 3.93V24h-4z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok" class="hover:text-black transition">
+          <!-- TikTok icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7"><path d="M12 2c0-.55.45-1 1-1h2c.55 0 1 .45 1 1 0 1.93.78 3.68 2.05 4.95S20.07 9 22 9c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1-2.1 0-4.05-.68-5.62-1.84V16c0 4.42-3.58 8-8 8S1 20.42 1 16s3.58-8 8-8c.55 0 1 .45 1 1v2c0 .55-.45 1-1 1-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V2z"/></svg>
+        </a>
+        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram" class="hover:text-pink-500 transition">
+          <!-- Instagram icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.366.062 2.633.34 3.608 1.314.975.975 1.252 2.242 1.314 3.608.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.34 2.633-1.314 3.608-.975.975-2.242 1.252-3.608 1.314-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.34-3.608-1.314-.975-.975-1.252-2.242-1.314-3.608C2.212 15.784 2.2 15.4 2.2 12s.012-3.584.07-4.85c.062-1.366.34-2.633 1.314-3.608C4.559 2.61 5.826 2.333 7.192 2.27 8.458 2.212 8.842 2.2 12 2.2m0-2.2C8.735 0 8.332.014 7.052.072 5.771.13 4.638.403 3.68 1.36 2.723 2.318 2.45 3.451 2.392 4.732.014 8.332 0 8.735 0 12s.014 3.668.072 4.948c.058 1.281.331 2.414 1.288 3.372.958.957 2.091 1.23 3.372 1.288C8.332 23.986 8.735 24 12 24s3.668-.014 4.948-.072c1.281-.058 2.414-.331 3.372-1.288.957-.958 1.23-2.091 1.288-3.372.058-1.28.072-1.683.072-4.948s-.014-3.668-.072-4.948c-.058-1.281-.331-2.414-1.288-3.372-.958-.957-2.091-1.23-3.372-1.288C15.668.014 15.265 0 12 0z"/><path d="M12 5.838A6.162 6.162 0 0 0 5.838 12 6.162 6.162 0 0 0 12 18.162 6.162 6.162 0 0 0 18.162 12 6.162 6.162 0 0 0 12 5.838m0 10.162A4 4 0 1 1 16 12a4 4 0 0 1-4 4z"/><circle cx="18.406" cy="5.594" r="1.44"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>`
+}
 
     // -------------------- Router --------------------
     const routes = [
