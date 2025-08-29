@@ -15,9 +15,9 @@
       theme: {
         extend: {
           colors: {
-            ocean: '#161420',
-            lagoon: '#2D2B36',
-            foam: '#F0F9FF'
+            lightblack: '#161420',
+            grey: '#999DA0',
+            lightgrey: '#F0F9FF'
           },
           boxShadow: {
             soft: '0 10px 30px rgba(0, 0, 0, 0.22)'
@@ -31,7 +31,7 @@
     html { scroll-behavior: smooth; }
   </style>
 </head>
-<body class="bg-foam text-slate-900">
+<body class="bg-lightgrey text-slate-900">
   <div id="app"></div>
 
   <script type="module">
@@ -42,11 +42,11 @@
     const AppLayout = {
       template: `
       <div class="min-h-screen flex flex-col">
-        <header class="sticky top-0 z-50 bg-ocean/90 text-white glass border-b border-white/10">
+        <header class="sticky top-0 z-50 bg-lightblack/90 text-white glass border-b border-white/10">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
               <a href="#/" class="flex items-center gap-3 group">
-                <div class="w-9 h-9 rounded-none bg-lagoon/90 grid place-items-center shadow-soft">
+                <div class="w-9 h-9 rounded-none bg-grey/90 grid place-items-center shadow-soft">
                   <span class="font-black">Ad</span>
                 </div>
                 <div class="leading-tight">
@@ -55,16 +55,16 @@
                 </div>
               </a>
               <nav class="hidden md:flex items-center gap-6 text-sm">
-                <RouterLink to="/" class="hover:text-lagoon">Accueil</RouterLink>
-                <RouterLink to="/mobilisations" class="hover:text-lagoon">Mobilisations</RouterLink>
-                <RouterLink to="/association" class="hover:text-lagoon">Association</RouterLink>
-                <RouterLink to="/engagements" class="hover:text-lagoon">Engagements</RouterLink>
-                <RouterLink to="/partenaires" class="hover:text-lagoon">Partenaires</RouterLink>
-                <RouterLink to="/adhesion-dons" class="hover:text-lagoon">Adhésion & Dons</RouterLink>
-                <RouterLink to="/agenda" class="hover:text-lagoon">Agenda</RouterLink>
-                <RouterLink to="/contact" class="hover:text-lagoon">Contact</RouterLink>
+                <RouterLink to="/" class="hover:text-grey">Accueil</RouterLink>
+                <RouterLink to="/mobilisations" class="hover:text-grey">Mobilisations</RouterLink>
+                <RouterLink to="/association" class="hover:text-grey">Association</RouterLink>
+                <RouterLink to="/engagements" class="hover:text-grey">Engagements</RouterLink>
+                <RouterLink to="/partenaires" class="hover:text-grey">Partenaires</RouterLink>
+                <RouterLink to="/adhesion-dons" class="hover:text-grey">Adhésion & Dons</RouterLink>
+                <RouterLink to="/agenda" class="hover:text-grey">Agenda</RouterLink>
+                <RouterLink to="/contact" class="hover:text-grey">Contact</RouterLink>
               </nav>
-              <RouterLink to="/adhesion-dons" class="hidden md:inline-flex items-center gap-2 bg-lagoon text-ocean font-semibold px-3 py-2 rounded-xl shadow-soft hover:opacity-90 transition">
+              <RouterLink to="/adhesion-dons" class="hidden md:inline-flex items-center gap-2 bg-grey text-lightblack font-semibold px-3 py-2 rounded-xl shadow-soft hover:opacity-90 transition">
                 Rejoindre la flotte
               </RouterLink>
               <button @click="open = !open" class="md:hidden p-2 rounded-lg hover:bg-white/10" aria-label="Menu">
@@ -90,7 +90,7 @@
           <RouterView />
         </main>
 
-        <footer class="bg-ocean text-white mt-16">
+        <footer class="bg-lightblack text-white mt-16">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid md:grid-cols-3 gap-8">
             <div>
               <div class="font-bold text-lg">Capitaine Ad’Hoc</div>
@@ -100,10 +100,10 @@
             <div>
               <div class="font-semibold mb-2">Navigation</div>
               <ul class="space-y-1 text-white/80 text-sm">
-                <li><RouterLink to="/mobilisations" class="hover:text-lagoon">Mobilisations</RouterLink></li>
-                <li><RouterLink to="/engagements" class="hover:text-lagoon">Engagements</RouterLink></li>
-                <li><RouterLink to="/partenaires" class="hover:text-lagoon">Partenaires</RouterLink></li>
-                <li><RouterLink to="/adhesion-dons" class="hover:text-lagoon">Adhésion & Dons</RouterLink></li>
+                <li><RouterLink to="/mobilisations" class="hover:text-grey">Mobilisations</RouterLink></li>
+                <li><RouterLink to="/engagements" class="hover:text-grey">Engagements</RouterLink></li>
+                <li><RouterLink to="/partenaires" class="hover:text-grey">Partenaires</RouterLink></li>
+                <li><RouterLink to="/adhesion-dons" class="hover:text-grey">Adhésion & Dons</RouterLink></li>
               </ul>
             </div>
             <div>
@@ -124,13 +124,13 @@
     const Accueil = {
       template: `
       <section class="relative overflow-hidden">
-        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-ocean via-ocean to-[#052033]"></div>
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-lightblack via-lightblack to-[#052033]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-white">
           <div class="max-w-3xl">
-            <h1 class="text-4xl md:text-6xl font-black leading-tight">Cap vers l’avenir — <span class="text-lagoon">Mers & Océans</span></h1>
+            <h1 class="text-4xl md:text-6xl font-black leading-tight">Cap vers l’avenir — <span class="text-grey">Mers & Océans</span></h1>
             <p class="mt-6 text-lg text-white/90">Association Capitaine Ad’Hoc : mobiliser, fédérer et innover pour transformer les défis en réussites collectives au service du bien-être animal, de l’emploi, de l’innovation et de l’éducation.</p>
             <div class="mt-8 flex flex-wrap gap-3">
-              <RouterLink to="/adhesion-dons" class="bg-lagoon text-ocean font-semibold px-5 py-3 rounded-xl shadow-soft hover:opacity-90">Rejoindre la flotte</RouterLink>
+              <RouterLink to="/adhesion-dons" class="bg-grey text-lightblack font-semibold px-5 py-3 rounded-xl shadow-soft hover:opacity-90">Rejoindre la flotte</RouterLink>
               <RouterLink to="/mobilisations" class="border border-white/30 px-5 py-3 rounded-xl hover:bg-white/10">Voir les mobilisations</RouterLink>
             </div>
           </div>
@@ -144,19 +144,19 @@
             <h3 class="font-bold">Fermeture de Marineland</h3>
             <p class="text-sm text-slate-500">Antibes — 5 janvier 2025</p>
             <p class="mt-3 text-slate-700">Témoins de la fermeture, nous cherchons des solutions pour transformer cet échec en réussite collective, gagnante pour tous.</p>
-            <RouterLink to="/mobilisations" class="mt-4 inline-block text-ocean hover:text-lagoon">En savoir plus →</RouterLink>
+            <RouterLink to="/mobilisations" class="mt-4 inline-block text-lightblack hover:text-grey">En savoir plus →</RouterLink>
           </article>
           <article class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
             <h3 class="font-bold">#freepaulwatson</h3>
             <p class="text-sm text-slate-500">Antibes — Juil. → Déc. 2024</p>
             <p class="mt-3 text-slate-700">Soutien au fondateur de Greenpeace & Sea Shepherd : rencontres, mobilisation, réseaux sociaux — sans militantisme, pour libérer un innocent.</p>
-            <RouterLink to="/mobilisations" class="mt-4 inline-block text-ocean hover:text-lagoon">Découvrir la campagne →</RouterLink>
+            <RouterLink to="/mobilisations" class="mt-4 inline-block text-lightblack hover:text-grey">Découvrir la campagne →</RouterLink>
           </article>
           <article class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
             <h3 class="font-bold">#Marineland2050</h3>
             <p class="text-sm text-slate-500">Antibes — Janv. → Juin 2025</p>
             <p class="mt-3 text-slate-700">Projet de reconversion fédérant acteurs publics & privés : bien-être animal, emploi, innovation, spectacle, tourisme, éducation…</p>
-            <RouterLink to="/mobilisations" class="mt-4 inline-block text-ocean hover:text-lagoon">Voir le projet →</RouterLink>
+            <RouterLink to="/mobilisations" class="mt-4 inline-block text-lightblack hover:text-grey">Voir le projet →</RouterLink>
           </article>
         </div>
       </section>
@@ -290,12 +290,12 @@
           <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
             <h2 class="font-bold">HelloAsso — Adhésions & Dons</h2>
             <p class="text-slate-700 mt-2">Plateforme française de référence pour la gestion associative. Sécurisée et adaptée à nos besoins (adhésions, dons, communication).</p>
-            <a href="#" class="inline-block mt-4 bg-ocean text-white px-4 py-2 rounded-xl hover:bg-lagoon hover:text-ocean transition">Accéder à HelloAsso</a>
+            <a href="#" class="inline-block mt-4 bg-lightblack text-white px-4 py-2 rounded-xl hover:bg-grey hover:text-lightblack transition">Accéder à HelloAsso</a>
           </div>
           <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
             <h2 class="font-bold">Ulule — Campagne 2025</h2>
             <p class="text-slate-700 mt-2">Lancement prévu en novembre–décembre 2025. Objectif : réunir des fonds (de 5 000 à 4 000 000 € possibles sur la plateforme) pour accélérer nos actions.</p>
-            <a href="#" class="inline-block mt-4 border border-ocean text-ocean px-4 py-2 rounded-xl hover:bg-ocean hover:text-white transition">Découvrir Ulule</a>
+            <a href="#" class="inline-block mt-4 border border-lightblack text-lightblack px-4 py-2 rounded-xl hover:bg-lightblack hover:text-white transition">Découvrir Ulule</a>
           </div>
         </div>
         <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
@@ -309,24 +309,24 @@
       template: `
       <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 class="text-3xl md:text-4xl font-extrabold">Agenda & Jalons</h1>
-        <ol class="mt-8 relative border-l-2 border-ocean/20 pl-6 space-y-8">
+        <ol class="mt-8 relative border-l-2 border-lightblack/20 pl-6 space-y-8">
           <li>
-            <div class="absolute -left-2 top-1 w-4 h-4 rounded-none bg-lagoon"></div>
+            <div class="absolute -left-2 top-1 w-4 h-4 rounded-none bg-grey"></div>
             <h3 class="font-semibold">Juil.–Déc. 2024 — #freepaulwatson</h3>
             <p class="text-slate-700">Mobilisation & rencontres.</p>
           </li>
           <li>
-            <div class="absolute -left-2 top-1 w-4 h-4 rounded-none bg-lagoon"></div>
+            <div class="absolute -left-2 top-1 w-4 h-4 rounded-none bg-grey"></div>
             <h3 class="font-semibold">5 jan. 2025 — Fermeture de Marineland</h3>
             <p class="text-slate-700">Recherche de solutions de reconversion.</p>
           </li>
           <li>
-            <div class="absolute -left-2 top-1 w-4 h-4 rounded-none bg-lagoon"></div>
+            <div class="absolute -left-2 top-1 w-4 h-4 rounded-none bg-grey"></div>
             <h3 class="font-semibold">Janv.–Juin 2025 — #Marineland2050</h3>
             <p class="text-slate-700">Projet de reconversion et 20 engagements.</p>
           </li>
           <li>
-            <div class="absolute -left-2 top-1 w-4 h-4 rounded-none bg-lagoon"></div>
+            <div class="absolute -left-2 top-1 w-4 h-4 rounded-none bg-grey"></div>
             <h3 class="font-semibold">15 juil. 2025 — Naissance de l’association</h3>
             <p class="text-slate-700">Publication au Journal Officiel.</p>
           </li>
@@ -348,18 +348,18 @@
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-sm font-medium">Nom</label>
-                <input required class="mt-1 w-full rounded-xl border-slate-300 focus:border-lagoon focus:ring-lagoon" type="text" />
+                <input required class="mt-1 w-full rounded-xl border-slate-300 focus:border-grey focus:ring-grey" type="text" />
               </div>
               <div>
                 <label class="block text-sm font-medium">Email</label>
-                <input required class="mt-1 w-full rounded-xl border-slate-300 focus:border-lagoon focus:ring-lagoon" type="email" />
+                <input required class="mt-1 w-full rounded-xl border-slate-300 focus:border-grey focus:ring-grey" type="email" />
               </div>
             </div>
             <div class="mt-4">
               <label class="block text-sm font-medium">Message</label>
-              <textarea required rows="5" class="mt-1 w-full rounded-xl border-slate-300 focus:border-lagoon focus:ring-lagoon"></textarea>
+              <textarea required rows="5" class="mt-1 w-full rounded-xl border-slate-300 focus:border-grey focus:ring-grey"></textarea>
             </div>
-            <button class="mt-4 bg-ocean text-white px-4 py-2 rounded-xl hover:bg-lagoon hover:text-ocean transition">Envoyer</button>
+            <button class="mt-4 bg-lightblack text-white px-4 py-2 rounded-xl hover:bg-grey hover:text-lightblack transition">Envoyer</button>
             <p v-if="sent" class="mt-3 text-green-700">Merci ! Votre message a été pris en compte (démo, pas d’envoi réel).</p>
           </form>
           <div class="bg-white rounded-2xl p-6 shadow-soft border border-slate-200">
